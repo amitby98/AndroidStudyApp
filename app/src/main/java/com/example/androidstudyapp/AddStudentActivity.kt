@@ -2,6 +2,11 @@ package com.example.androidstudyapp
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -9,9 +14,9 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import androidx.fragment.app.Fragment
 
 class AddStudentActivity : AppCompatActivity() {
-    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -30,12 +35,12 @@ class AddStudentActivity : AppCompatActivity() {
 
         val savedMessageTextView: TextView = findViewById(R.id.add_student_activity_save_message_text_view)
 
-        cancelButton.setOnClickListener{
+        cancelButton.setOnClickListener {
             finish()
         }
 
         saveButton.setOnClickListener {
-            savedMessageTextView.text = "Name: ${nameEditText.text} ID: ${idEditText.text} is saved!!! "
+            savedMessageTextView.text = "Name: ${nameEditText.text} ID: ${idEditText.text} is saved!!!..."
         }
     }
 }
