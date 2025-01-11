@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
+import android.widget.ImageButton
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.androidstudyapp.adapter.StudentsRecyclerAdapter
@@ -40,10 +42,21 @@ class StudentsListFragment : Fragment() {
 
             override fun onItemClick(student: Student?) {
                 Log.d("TAG", "On student clicked name: ${student?.name}")
+
+//                Navigation.findNavController(view).navigate(R.id.action_studentsListFragment_to_blueFragment)
+
+//                student?.let {
+//                    val action = StudentsListFragmentDirections.actionStudentsListFragmentToBlueFragment(it.name)
+//                    Navigation.findNavController(view).navigate(action)
+//                }
             }
         }
 
         recyclerView.adapter = adapter
+
+//        val imageButton: ImageButton = view.findViewById(R.id.list_fragment_add_button)
+//        val action = StudentsListFragmentDirections.actionGlobalAddStudentFragment()
+//        imageButton.setOnClickListener(Navigation.createNavigateOnClickListener(action))
 
         return view
     }

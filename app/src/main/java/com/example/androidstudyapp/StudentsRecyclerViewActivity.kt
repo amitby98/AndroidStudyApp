@@ -3,15 +3,13 @@ package com.example.androidstudyapp
 
 import android.os.Bundle
 import android.util.Log
-import android.view.View
-import android.widget.AdapterView
-import android.widget.AdapterView.OnItemClickListener
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+
 import com.example.androidstudyapp.adapter.StudentsRecyclerAdapter
 import com.example.androidstudyapp.model.Model
 import com.example.androidstudyapp.model.Student
@@ -48,18 +46,13 @@ class StudentsRecyclerViewActivity : AppCompatActivity() {
 
         val adapter = StudentsRecyclerAdapter(students)
 
-        adapter.listener = object : OnItemClickListener,
-            com.example.androidstudyapp.OnItemClickListener {
+        adapter.listener = object : OnItemClickListener{
             override fun onItemClick(position: Int) {
                 Log.d("TAG", "On click Activity listener on position $position")
             }
 
             override fun onItemClick(student: Student?) {
                 Log.d("TAG", "On student clicked name: ${student?.name}")
-            }
-
-            override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                TODO("Not yet implemented")
             }
         }
 
