@@ -41,22 +41,19 @@ class StudentsListFragment : Fragment() {
             }
 
             override fun onItemClick(student: Student?) {
-//                Log.d("TAG", "On student clicked name: ${student?.name}")
-
-                Navigation.findNavController(view).navigate(R.id.action_studentsListFragment_to_blueFragment)
-
-//                student?.let {
-//                    val action = StudentsListFragmentDirections.actionStudentsListFragmentToBlueFragment(it.name)
-//                    Navigation.findNavController(view).navigate(action)
-//                }
+                student?.let {
+                    val action = StudentsListFragmentDirections.actionStudentsListFragmentToBlueFragment(it.name)
+                    Navigation.findNavController(view).navigate(action)
+                }
             }
         }
 
         recyclerView.adapter = adapter
 
-//        val imageButton: ImageButton = view.findViewById(R.id.list_fragment_add_button)
-//        val action = StudentsListFragmentDirections.actionGlobalAddStudentFragment()
-//        imageButton.setOnClickListener(Navigation.createNavigateOnClickListener(action))
+        val imageButton: ImageButton = view.findViewById(R.id.list_fragment_add_button)
+        val action = StudentsListFragmentDirections.actionGlobalAddStudentFragment()
+        imageButton.setOnClickListener(Navigation.createNavigateOnClickListener(action))
+//        imageButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_global_addStudentFragment))
 
         return view
     }
